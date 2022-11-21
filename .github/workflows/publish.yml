@@ -1,0 +1,20 @@
+name: Publish
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - uses: dimensiondev/github-token-action@latest
+        with:
+          registry: true
+      - run: npm ci
+      - run: npm --no-git-tag-version version "0.0.0-$BUILD_VERSION"
+      - run: npm publish
