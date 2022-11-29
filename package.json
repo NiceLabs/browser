@@ -1,5 +1,5 @@
 {
-  "name": "@nicelabs/browser",
+  "name": "@nicelabs/kit",
   "version": "0.0.0",
   "scripts": {
     "start": "rimraf dist && tsc"
